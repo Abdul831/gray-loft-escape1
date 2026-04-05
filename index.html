@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Gray Loft Escape</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial;
+      background: linear-gradient(to right, #1f1f1f, #3a3a3a);
+      color: white;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+
+    .container {
+      margin-top: 30px;
+      padding: 20px;
+      animation: fadeIn 1.5s ease-in;
+    }
+
+    input {
+      padding: 10px;
+      width: 80%;
+      max-width: 300px;
+    }
+
+    button {
+      padding: 12px 20px;
+      background: #00c3ff;
+      border: none;
+      border-radius: 8px;
+      color: black;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 10px;
+    }
+
+    button:hover {
+      background: #00a3d6;
+    }
+
+    #message { margin-top: 20px; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <h1>🧩 Gray Loft Escape</h1>
+
+    <h3>🏆 Leaderboard</h3>
+    <p>1. Abdul – 32s</p>
+    <p>2. Sarah – 40s</p>
+    <p>3. James – 55s</p>
+
+    <h2 id="timer">Time: 60</h2>
+
+    <p>
+      You wake up inside a luxury New York loft.
+      A missing tech billionaire left hidden clues.
+      Escape before time runs out.
+    </p>
+
+    <!-- PLAYER NAME -->
+    <input id="playerName" placeholder="Enter your name">
+
+    <!-- LEVEL 1 -->
+    <p><b>Puzzle 1:</b> The note says: 5 + 3</p>
+    <input id="answer1" placeholder="Answer">
+    <button onclick="checkAnswer1()">Submit</button>
+
+    <div id="puzzle2" style="display:none;">
+      <p><b>Puzzle 2:</b> What has keys but can’t open locks?</p>
+      <input id="answer2" placeholder="Answer">
+      <button onclick="checkAnswer2()">Submit</button>
+    </div>
+
+    <div id="puzzle3" style="display:none;">
+      <p><b>Puzzle 3:</b> How many months have 28 days?</p>
+      <input id="answer3" placeholder="Answer">
+      <button onclick="checkAnswer3()">Submit</button>
+    </div>
+
+    <div id="puzzle4" style="display:none;">
+      <p><b>Puzzle 4:</b> What comes once in a year, twice in a week, but never in a day?</p>
+      <input id="answer4" placeholder="Answer">
+      <button onclick="checkAnswer4()">Submit</button>
+    </div>
+
+    <div id="final" style="display:none;">
+      <p><b>Final Puzzle:</b> What gets wetter the more it dries?</p>
+      <input id="finalAnswer" placeholder="Enter code">
+      <button onclick="checkFinal()">Submit</button>
+    </div>
+
+    <div id="win" style="display:none;">
+      <h2>🎉 You Escaped!</h2>
+      <p>🔒 Level 2 locked</p>
+      <p>Like and Comment to unlock the next level</p>
+      <a href="https://www.linkedin.com/posts/abdul-rahaman-nantogmah-salifu-733481247_i-built-and-deployed-my-first-interactive-share-7445952752754561024-tp7h?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD0dstcBEk8FvW_Ahi_I5Ma9Rhgy19C46zE">
+        <button>Unlock Now</button>
+      </a>
+    </div>
+
+    <div id="message"></div>
+
+  </div>
+
+  <script>
+
+    let timeLeft = 60;
+    let startTime = Date.now();
+
+    const timer = setInterval(() => {
+      timeLeft--;
+      document.getElementById("timer").innerText = "Time: " + timeLeft;
+
+      if(timeLeft <= 0){
+        clearInterval(timer);
+        document.getElementById("message").innerText = "⏰ Time's up!";
+      }
+    }, 1000);
+
+    function checkAnswer1() {
+      if(document.getElementById('answer1').value == "8") {
+        document.getElementById('puzzle2').style.display = 'block';
+      } else {
+        document.getElementById('message').innerText = "Try again.";
+      }
+    }
+
+    function checkAnswer2() {
+      const ans = document.getElementById('answer2').value.toLowerCase();
+      if(ans == "piano") {
+        document.getElementById('puzzle3').style.display = 'block';
+      } else {
+        document.getElementById('message').innerText = "Wrong.";
+      }
+    }
+
+    function checkAnswer3() {
+      if(document.getElementById('answer3').value == "12") {
+        document.getElementById('puzzle4').style.display = 'block';
+      } else {
+        document.getElementById('message').innerText = "Try again.";
+      }
+    }
+
+    function checkAnswer4() {
+      const ans = document.getElementById('answer4').value.toLowerCase();
+      if(ans == "e") {
+        document.getElementById('final').style.display = 'block';
+      } else {
+        document.getElementById('message').innerText = "Wrong.";
+      }
+    }
+
+    function checkFinal() {
+      const ans = document.getElementById('finalAnswer').value.toLowerCase();
+      if(ans == "towel") {
+        clearInterval(timer);
+        document.getElementById('win').style.display = 'block';
+
+        let timeTaken = Math.floor((Date.now() - startTime)/1000);
+        let name = document.getElementById('playerName').value || "Player";
+
+        document.getElementById('message').innerText = name + " finished in " + timeTaken + " seconds!";
+      } else {
+        document.getElementById('message').innerText = "Wrong code.";
+      }
+    }
+
+  </script>
+</body>
+</html>
