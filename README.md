@@ -19,5 +19,7 @@ https://abdul831.github.io/gray-loft-escape1/
 HTML, CSS, JavaScript
 
 ## Author
-Abdul Rahaman Nantogmah Salifu
-salifuabdulrahaman69@gmail.com
+**Abdul Rahaman Nantogmah Salifu**  
+- salifuabdulrahaman69@gmail.com
+- GitHub: https://github.com/Abdul831  
+- LinkedIn: www.linkedin.com/in/abdul-rahaman-nantogmah-salifu-733481247
