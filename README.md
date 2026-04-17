@@ -15,6 +15,9 @@ https://abdul831.github.io/gray-loft-escape1/
 ## Puzzle Answers
 | P1= 8 | P2= piano | P3= 12 | P4= e | P5= towel |
 
+## Screenshot
+![Homepage](/homepage.PNG)
+
 ## Technologies
 HTML, CSS, JavaScript
 
