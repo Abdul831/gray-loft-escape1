@@ -13,11 +13,11 @@ An interactive browser-based escape room game built with HTML, CSS, and JavaScri
 https://abdul831.github.io/gray-loft-escape1/
 
 ## Puzzle Answers
-1 = 8
-2 = piano
-3 = 12
-4 = e
-5 = towel
+1 = 8,
+2 = piano,
+3 = 12,
+4 = e,
+5 = towel,
 
 ## Technologies
 HTML, CSS, JavaScript
